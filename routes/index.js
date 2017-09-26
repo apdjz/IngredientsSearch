@@ -2,14 +2,16 @@
 
 var express = require('express');
 var router = express.Router();
+// require in db
 
-module.exports = function(io){
+module.exports = router
     router.get('/', function (req, res){
-      res.render('Hello Test');
+    console.log('hi') 
+      res.render('index');
     });
 
   router.get('/food', function(req, res){
-    res.render('index.html');
+   // res.render('index.html');
   });
 /*
   router.get('/food/ingredients', function(req, res){
@@ -23,12 +25,12 @@ module.exports = function(io){
   router.route('/food/myIngredients')
   //in route I assume you cant have more than one get
   //as it is refering to myIngredients path
-    .get(function (req, res) {
-      res.send('Get one');
+    .get(function (req, res) { // merge me with get below
+      res.send('Get ingredients');
     })
-    .get(function (req, res) {
-      res.send('Get all');
-    })
+    // .get(function (req, res) { //based on req.query 
+    //   res.send('Get all OR get one');
+    // })
     .post(function (req, res) {
       res.send('Add');
     })
@@ -39,11 +41,8 @@ module.exports = function(io){
     router.route('/food/recipe')
     //in route I assume you cant have more than one get
     //as it is refering to myIngredients path
-      .get(function (req, res) {
-        res.send('Get all');
-      })
-      .get(function (req, res) {
-        res.send('Get all saved in db');
+      .get(function (req, res) { // query string will be great for filtering by title or who made the recipe
+        res.send('Get recipe');
       })
       .post(function (req, res) {
         res.send('Add');
@@ -52,5 +51,6 @@ module.exports = function(io){
         res.send('notes');
       });
 
-  return router;
-};
+      router.route('/food/recipe/:id')
+      //rest--can you explaina gain
+      // get 1 recipe by id and put for single (by id)
