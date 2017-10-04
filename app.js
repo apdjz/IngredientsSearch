@@ -1,11 +1,11 @@
 'use strict';
 
-var express = require( 'express' );
-var app = express();
-var routes = require('./routes');
-var bodyParser = require('body-parser');
-var nunjuck = require('nunjucks');
-//var socketio = require('socket.io');
+let express = require( 'express' );
+let app = express();
+let routes = require('./routes');
+let bodyParser = require('body-parser');
+let nunjuck = require('nunjucks');
+let morgan = require('morgan');
 
 nunjuck.configure('./views', {
     express: app,
@@ -13,21 +13,31 @@ nunjuck.configure('./views', {
     autoescape: true
   });
 
-//app.use(express.static('public'));
+app.use(express.static('public'));
 app.set('view engine', 'html');
 app.engine('html', nunjuck.render);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 app.use(routes);
 
-  var server = app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-  });
 
-  //var io = socketio.listen(server); //?
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
-  // sockets 
-    // 2 way communication (server can push information withOUT client specifically making request)
-  //like updating a website --twitter added a new ..just thinking if that is something i w
-    //app.use('/', routes(io));
+app.listen(3000, function () {
+    console.log('Listening on port 3000!');
+});
+
+// handle all errors (anything passed into `next()`)
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  console.error(err);
+  res.send('oh no');
+});
+
+

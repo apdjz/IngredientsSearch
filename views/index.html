@@ -1,20 +1,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+  
 <div class="page-header">
-  <h1>Mmm... What should I eat?</h1>
+  <h1>Home</h1>
 </div>
   
-  <form action="/myIngredients" method="POST">
-      <label for="name_field">Name:</label>
-      <input name="name" type="text" id="name_field" />
-
-      <label for="text_field">Text:</label>
-      <input name="text" type="text" id="text_field" style="width: 350px;" />
-
-      <input type="submit" value="Submit" />
+  <form action="/recipe" method="POST">
+    <label for="number_field">Id:</label>
+    <input name="id" type="number" id="number_field" />
+    <label for="recipe_field">Recipe:</label>
+    <input name="recipe" type="name" id="recipe_field" />
+    <label for="category_field">Category:</label>
+    <input name="category" type="text" id="category_field" />
+    <label for="steps_field">Number of Steps:</label>
+    <input name="steps" type="number" id="steps_field" />
+    <input type="submit" value="Search" />
   </form>
-
-  
+    
 {% endblock %}

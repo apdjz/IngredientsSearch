@@ -1,5 +1,7 @@
-var Sequelize = require('sequelize');
-var db = new Sequelize('postgres://localhost:5432/foodsearch');
+let Sequelize = require('sequelize');
+let db = new Sequelize('postgres://localhost:5432/foodsearch', {
+    logging: false
+});
 
 db
 .authenticate()
@@ -9,19 +11,17 @@ db
 .catch(err => {
   console.error('Unable to connect to the database:', err);
 });
-
-var Recipes = db.define('recipes', {
+db.sync();
+//views for permissions
+let Recipes = db.define('recipes', {
     id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        isInt: true,
+        primaryKey: true
     },
     name: {
-        type: Sequelize.STRING
-    },
-    notes: {
-        type: Sequelize.TEXT
-    },
-    steps: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING,
+        allowNull: false
     },
     cookTime: {
         type: Sequelize.TIME
@@ -30,38 +30,93 @@ var Recipes = db.define('recipes', {
         type: Sequelize.TIME
     },
     skillLevel: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }
+});
+let Steps = db.define('steps', {
+    id: {
+        type: Sequelize.INTEGER,
+        isInt: true,
+        primaryKey: true
+    },
+    instructions: {
+        type: Sequelize.TEXT
+    },
+    notes: {
+        type: Sequelize.TEXT,
+        allowNull: true
+    }
+});
+let StepsList = db.define('stepsList', {
+    id: {
+        type: Sequelize.INTEGER,
+        isInt: true,
+        primaryKey: true
+    }
+});
+let Ingredients = db.define('ingredients', {
+    id: {
+        type: Sequelize.INTEGER,
+        isInt: true,
+        primaryKey: true
+    },
+    description: {
+        type: Sequelize.TEXT
+    },
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    category: {
         type: Sequelize.STRING
     }
 });
-var Steps = db.define('steps', {
+let MyIngredientsList = db.define('myIngredientsList', {
     id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        isInt: true,
+        primaryKey: true
     },
-    recipe_id: {
-        type: Sequelize.INTEGER
-    },
-    notes: {
-        type: Sequelize.TEXT
-    },
-    numberOfSteps: {
-        type: Sequelize.INTEGER
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 });
-var Quantity = db.define('quantity', {
+let Quantity = db.define('quantity', {
     id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        isInt: true,
+        primaryKey: true
     },
-    recipe_id: {
-        type: Sequelize.INTEGER
-    },
-    notes: {
-        type: Sequelize.TEXT
-    },
-    numberOfSteps: {
-        type: Sequelize.INTEGER
+    quantity: {
+        type: Sequelize.DECIMAL,
+        isDecimal: true
     }
 });
+let Measurements = db.define('measurements', {
+    id: {
+        type: Sequelize.INTEGER,
+        isInt: true,
+        primaryKey: true
+    },
+    unit: {
+        type: Sequelize.STRING
+    }
+});
+Steps.belongsTo(StepsList);
+Recipes.belongsTo(StepsList);
+Quantity.belongsTo(Recipes);
+Quantity.belongsTo(Ingredients);
+Quantity.belongsTo(Measurements);
+Ingredients.belongsTo(MyIngredientsList);
+
 module.exports = {
-  Recipes: Recipes,
-  User: User
+Recipes,
+Steps,
+StepsList,
+Ingredients,
+MyIngredientsList,
+Quantity,
+Measurements
 };

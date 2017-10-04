@@ -1,0 +1,92 @@
+-- insert into recipes values ('1','red velvet','0:45:0','0:30:0','Advance',current_timestamp,current_timestamp);
+-- insert into recipes values ('2','big mac','0:10:0','0:05:0','Beginner',current_timestamp,current_timestamp);
+-- insert into recipes values ('3','cookies','1:00:0','0:30:0','Beginner',current_timestamp,current_timestamp);
+-- insert into recipes values ('4','fudge','0:45:0','0:30:0','Beginner',current_timestamp,current_timestamp);
+-- insert into recipes values ('5','brownies','0:45:0','0:30:0','Beginner',current_timestamp,current_timestamp);
+-- insert into recipes values ('6','apple pie','1:15:0','0:30:0','Beginner',current_timestamp,current_timestamp);
+-- insert into recipes values ('7','halo halo','0:0:0','0:15:0','Beginner',current_timestamp,current_timestamp);
+-- insert into recipes values ('8','ham croquettes','0:20:0','0:30:0','Intermediate',current_timestamp,current_timestamp);
+-- insert into recipes values ('9','one pot past','0:28:0','0:10:0','Beginner',current_timestamp,current_timestamp);
+
+-- insert into ingredients values ('1','Bright red','Apple','Fruit',current_timestamp,current_timestamp);
+-- insert into ingredients values ('2','Everywhere','Flour','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('3','From bees','Honey','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('4','Preservative','Salt','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('5','','Egg','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('6','','Butter','Dairy',current_timestamp,current_timestamp);
+-- insert into ingredients values ('7','Fresh Cheese','Cream Cheese','Dairy',current_timestamp,current_timestamp);
+-- insert into ingredients values ('8','','Buttermilk','Dairy',current_timestamp,current_timestamp);
+-- insert into ingredients values ('9','Red','Food Coloring','Dye',current_timestamp,current_timestamp);
+-- insert into ingredients values ('10','Yum','Cocoa Powder','Powder',current_timestamp,current_timestamp);
+-- insert into ingredients values ('11','Who does not like butter','Butter','Dairy',current_timestamp,current_timestamp);
+-- insert into ingredients values ('12','Must be vanilla bean pod','Vanilla','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('13','So smelly','Vinegar','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('14','','Ground Beef','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('15','','Onion','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('16','','Mushrooms','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('17','','Vegetable Oil','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('18','','Garlic Clove','',current_timestamp,current_timestamp); 
+-- insert into ingredients values ('19','','Tomat Basil Pasta Sauce','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('20','Drink it','Water','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('21','','Dried Italian Seasoning','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('22','','Pepper','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('23','','Four Cheese Ravioli','',current_timestamp,current_timestamp);
+-- insert into ingredients values ('24','','Mozzarella Cheese','',current_timestamp,current_timestamp);
+
+-- INSERT INTO stepsLists values(1, current_timestamp, current_timestamp);
+-- INSERT INTO stepsLists values(2, current_timestamp, current_timestamp);
+
+-- Red velvet
+-- insert into steps values('1','Heat oven to 350 degrees. Prepare three 9-inch cake pans by buttering 
+-- lightly and sprinkling with 1 tablespoon sifted cocoa powder, tapping pans to coat and discarding extra 
+-- cocoa.','preheat',current_timestamp,current_timestamp);
+-- insert into steps values('2','Cream butter and sugar together. Add eggs one at a time and beat vigorously
+-- until each is incorporated. Mix in vanilla.','mix',current_timestamp,current_timestamp);
+-- insert into steps values('3','In a separate bowl, make a paste of the remaining 2 tablespoons cocoa and
+--  the food coloring. Blend into butter mixture.','coloring',current_timestamp,current_timestamp);
+-- insert into steps values('4','Sift together remaining dry ingredients. Alternating in 2 batches each, 
+-- add dry ingredients and buttermilk to the butter mixture. In the last batch of buttermilk, mix in the 
+-- vinegar before adding to the batter. Mix until blended.
+-- ','',current_timestamp,current_timestamp);
+-- insert into steps values('5','Divide batter among 3 pans and bake for about 20 to 25 minutes. Cool 
+-- on a rack completely.','Can also be made in 2 cake pans.',current_timestamp,current_timestamp);
+-- insert into steps values('6','To assemble, remove 1 cake from its pan and place flat side down on 
+-- a serving platter. Drop about 1 cup of icing onto cake and, using a flat spatula, spread evenly over top. 
+-- Remove the second cake from its pan. Place flat side down on top of first layer. Use remaining frosting to 
+-- cover top and sides of cake.','dry mix',current_timestamp,current_timestamp);
+
+--One Pot Past
+ -- insert into steps values('7','Cook ground beef in a Dutch oven over medium-high heat, 
+ -- stirring until it crumbles and is no longer pink; drain. Wipe Dutch oven clean.',
+ -- '',current_timestamp,current_timestamp);
+ -- insert into steps values('8','Sauté onion and mushrooms in hot oil over medium-high 
+ -- heat 8 minutes or until tender. Add garlic, and sauté 1 minute. Stir in beef, pasta sauce, 
+ -- 1 cup water, and next 3 ingredients.',
+ -- '',current_timestamp,current_timestamp);
+ -- insert into steps values('9','Bring sauce to a boil; add ravioli. Reduce heat to medium-low, 
+ -- cover, and simmer, stirring occasionally, 8 to 10 minutes or until pasta is done. 
+ -- Stir in cheese. Serve immediately.',
+ -- '',current_timestamp,current_timestamp);
+ -- insert into steps values('10','Note: For testing purposes only, 
+ -- we used Classico Tomato & Basil pasta sauce and Buitoni Family Size Four Cheese Ravioli.',
+ -- '',current_timestamp,current_timestamp);
+
+-- insert into measurements values('1','teaspoons',current_timestamp,current_timestamp);
+-- insert into measurements values('2','tablespoons',current_timestamp,current_timestamp);
+-- insert into measurements values('3','fluid ounce',current_timestamp,current_timestamp);
+-- insert into measurements values('4','cup',current_timestamp,current_timestamp);
+-- insert into measurements values('5','pint',current_timestamp,current_timestamp);
+-- insert into measurements values('6','quart',current_timestamp,current_timestamp);
+-- insert into measurements values('7','pound',current_timestamp,current_timestamp);
+-- insert into measurements values('8','weight ounce',current_timestamp,current_timestamp);
+-- insert into measurements values('9','milligram',current_timestamp,current_timestamp);
+-- insert into measurements values('10','gram',current_timestamp,current_timestamp);
+-- insert into measurements values('11','kilogram',current_timestamp,current_timestamp);
+-- insert into measurements values('12','millimeter',current_timestamp,current_timestamp);
+-- insert into measurements values('13','centimeter',current_timestamp,current_timestamp);
+-- insert into measurements values('14','meter',current_timestamp,current_timestamp);
+-- insert into measurements values('15','inches',current_timestamp,current_timestamp);
+
+
+
+
