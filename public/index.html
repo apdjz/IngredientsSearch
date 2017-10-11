@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test2</title>
+        <script src="client.js"></script>
+        
+    </head>
+    <body>
+            <form form id="recipeId" action="/recipes" method="post">
+            <label for="number_field">Id:</label>
+            <input name="id" type="number" id="number_field" />
+            <label for="recipe_field">Recipe:</label>
+            <input name="recipe" type="name" id="recipe_field" />
+            <label for="category_field">Category:</label>
+            <input name="category" type="text" id="category_field" />
+            <label for="steps_field">Number of Steps:</label>
+            <input name="steps" type="number" id="steps_field" />
+            <input type="submit" value="Search" />
+        </form>
+        <div id="test"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script> 
+        <script src="bundle.js" defer></script>
+    </body>
+</html>

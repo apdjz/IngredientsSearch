@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/apdjz/IngredientsSearch.git"
@@ -16,15 +13,24 @@
     "url": "https://github.com/apdjz/IngredientsSearch/issues"
   },
   "homepage": "https://github.com/apdjz/IngredientsSearch#readme",
+  "scripts": {
+    "start:dev": "webpack -w & nodemon server/app.js",
+    "start": "npm run start:dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
     "module": "^1.2.5",
     "morgan": "^1.8.2",
     "nodemon": "^1.12.1",
-    "nunjucks": "^3.0.1",
+    "path": "^0.12.7",
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.10.2"
+  },
+  "devDependencies": {
+    "webpack": "^3.6.0"
   }
 }

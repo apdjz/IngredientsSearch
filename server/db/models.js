@@ -1,23 +1,12 @@
-let Sequelize = require('sequelize');
-let db = new Sequelize('postgres://localhost:5432/foodsearch', {
-    logging: false
-});
+const Sequelize = require('sequelize');
+const db = require('./db');
 
-db
-.authenticate()
-.then(() => {
-  console.log('Connection has been established successfully.');
-})
-.catch(err => {
-  console.error('Unable to connect to the database:', err);
-});
-db.sync();
-//views for permissions
 let Recipes = db.define('recipes', {
     id: {
         type: Sequelize.INTEGER,
         isInt: true,
-        primaryKey: true
+        primaryKey: true,
+        validate: { notEmpty: true }
     },
     name: {
         type: Sequelize.STRING,
@@ -104,19 +93,13 @@ let Measurements = db.define('measurements', {
         type: Sequelize.STRING
     }
 });
-Steps.belongsTo(StepsList);
-Recipes.belongsTo(StepsList);
-Quantity.belongsTo(Recipes);
-Quantity.belongsTo(Ingredients);
-Quantity.belongsTo(Measurements);
-Ingredients.belongsTo(MyIngredientsList);
-
 module.exports = {
-Recipes,
-Steps,
-StepsList,
-Ingredients,
-MyIngredientsList,
-Quantity,
-Measurements
+    db,
+    Recipes,
+    Steps,
+    StepsList,
+    Ingredients,
+    MyIngredientsList,
+    Quantity,
+    Measurements
 };
